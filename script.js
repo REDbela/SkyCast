@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function searchcityBtn() {
   const input1 = document.getElementById("cityInput")
   const input2 = document.getElementById("cityInput1")
-
+                                                      //' adet input olma nedeni benim başta div yapısını kötü oluşturmamdan dolayı aldığım hata sonucu bulduğum bir çözüm açıklamak gerekirse 2 butona aynı id veremediğim için 2 ayrı değişkeni kontrol ettirip ahngisi dlu ise onu almasını sağladım
   if (input1.value.trim() === "" && input2.value.trim() === "") {
     alert("Lütfen bir şehir adı girin.")
     return;

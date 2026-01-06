@@ -4,21 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SKYCAST</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- fontları çekmek -->    
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap"
       rel="stylesheet"
     />
+    <!-- İconları çekmek -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
+    <!-- Css çekmek -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
 
-
+      <!-- İlk panel sadece şehir arama kısmı -->
     <div id="head" class="hidden" style="display: flex">
       <h1 class="label">Şehir girin</h1>
       <input type="text" id="cityInput" class="input control" placeholder="Şehir adı girin..."/>
@@ -32,10 +33,13 @@
         </button>
       </div>
     </div>
+
+      <!-- İkinci panel hem arama hemde hava durumu bilgileri -->
+    
     <div id="main" class="hidden" style="display: none;">
       <div id="main-content">
 
-
+        <!-- Şehir arama kısmı -->
         <div id="main-content-serch">
           <h1>Şehir girin</h1>
           <input type="text" id="cityInput1" class="input control" placeholder="Şehir adı girin..."/>
@@ -49,7 +53,7 @@
       </div>
         </div>
 
-
+        <!-- Hava durumu bilgileri kısmı -->
         <div id="main-content-panel">
           <div>
             <div id="genel">
@@ -76,10 +80,9 @@
             </div>
           </div>
         </div>
-
-        
       </div>
     </div>
+    <!-- Scripti çekmek -->
     <script src="script.js"></script>
   </body>
 </html>

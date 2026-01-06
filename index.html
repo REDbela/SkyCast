@@ -4,22 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SKYCAST</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- fontları çekmek -->    
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap"
       rel="stylesheet"
     />
+    <!-- İconları çekmek -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
+    <!-- Css çekmek -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
 
-
-    <div id="head" class="hidden" style="display: flex">
+      <!-- İlk panel sadece şehir arama kısmı -->
+    <div id="head" class="hidden" style="display: none;">
       <h1 class="label">Şehir girin</h1>
       <input type="text" id="cityInput" class="input control" placeholder="Şehir adı girin..."/>
 
@@ -32,10 +33,13 @@
         </button>
       </div>
     </div>
-    <div id="main" class="hidden" style="display: none;">
+
+      <!-- İkinci panel hem arama hemde hava durumu bilgileri -->
+
+    <div id="main" class="hidden" style="display: block;">
       <div id="main-content">
 
-
+        <!-- Şehir arama kısmı -->
         <div id="main-content-serch">
           <h1>Şehir girin</h1>
           <input type="text" id="cityInput1" class="input control" placeholder="Şehir adı girin..."/>
@@ -49,17 +53,17 @@
       </div>
         </div>
 
-
+        <!-- Hava durumu bilgileri kısmı -->
         <div id="main-content-panel">
           <div>
             <div id="genel">
-              <label id="şehir-adı">Bursa,</label>
+              <label id="şehir-adı" class="şehir">Bursa,</label>
               <label id="ülke">TR</label>
             </div>
             <label id="tarih">31 Aralık 2025 Çarşamba</label>
             <label id="derece">7 °C</label>
             <div id="durum">
-              <i class="fa-solid fa-cloud"></i>
+              <i class="durum-icon"></i>
               <label id="durum-açıklama">Parçalı Bulutlu</label>
             </div>
           </div>
@@ -67,19 +71,18 @@
             <div id="bilgiler">
               <div id="nem">
                 <i class="fa-solid fa-droplet"></i>
-                <label>Nem: 65%</label>
+                <label id="nem-label">Nem: 65%</label>
               </div>
               <div id="rüzgar-hızı">
                 <i class="fa-solid fa-wind"></i>
-                <label>Rüzgar Hızı: 15 km/s</label>
+                <label id="rüzgar-hızı-label">Rüzgar Hızı: 15 km/s</label>
               </div>
             </div>
           </div>
         </div>
-
-        
       </div>
     </div>
+    <!-- Scripti çekmek -->
     <script src="script.js"></script>
   </body>
 </html>

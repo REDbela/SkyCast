@@ -1,0 +1,187 @@
+    body {
+      margin: 0;
+      padding: 0;
+      background: #5ea8c5;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #head{
+      background-color: white;
+      display: flex;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 0 3px #ffffff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #head:hover {
+      box-shadow: 0 0 9px hsl(0, 0%, 100%);
+      transform: scale(1.02);
+    }
+
+    .control {
+      border-radius: 16px;
+      border: none;
+      transition: all 0.2s ease-out;
+      height: 48px;
+      padding: 0 16px;
+      box-sizing: border-box;
+      background-color: #d6d6d69f;
+    }
+
+    .control:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    .label {
+      font-size: 1.5rem;
+      margin: 0;
+      cursor: default;
+    }
+
+    .input {
+      font-size: 1.25rem;
+      text-align: center;
+      cursor: text;
+    }
+
+    #cityInput:focus,
+    #cityInput1:focus {
+      outline: none;
+      box-shadow: 0 0 18px 3px rgb(131, 182, 196);
+      transform: scale(1.05);
+      cursor: text;
+    }
+
+    #search-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 10px 10px #0000001a;
+      cursor: pointer;
+    }
+
+    #geo-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 10px 10px #0000001a;
+      cursor: pointer;
+    }
+
+    #main-content {
+      display: block;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background-color: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: #20353d 0px 0px 10px 0px;
+      transform: scale(1.2);
+    }
+
+    #main-content-serch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    #main-content-panel {
+      background-color: #b8e0f0;
+      box-shadow: #4e869c 0px 0px 5px 1px;
+      padding: 15px 20px;
+      border-radius: 16px;
+      gap: 1rem;
+      display: flex;
+    }
+
+    #genel {
+      display: flex;
+      gap: 1rem;
+      font-size: 1.2rem;
+      padding-bottom: 10px;
+    }
+
+    #şehir-adı {
+      font-weight: 600;
+    }
+
+    #ülke {
+      font-weight: 400;
+    }
+
+    #tarih {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #3d3d3d7c;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    #derece {
+      font-size: 1rem;
+      font-weight: 800;
+      display: block;
+    }
+
+    #bilgiler {
+      display: flex;
+      gap: 2rem;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    #durum {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 10px 0;
+    }
+
+    #durum-ikon {
+      width: 40px;
+      height: 40px;
+    }
+
+    #durum-açıklama {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    #bilgiler {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 120px;
+      gap: 30px;
+    }
+
+    #nem, #rüzgar-hızı {
+      background-color: #6ba2e2;
+      padding: 10px;
+      border-radius: 5px;
+    }

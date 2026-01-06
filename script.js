@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("cityInput").focus()
   document.getElementById("cityInput1").focus()
+  let api;
 });
-
+// Şehir adı ile arama
 function searchcityBtn() {
   const input1 = document.getElementById("cityInput")
   const input2 = document.getElementById("cityInput1")
@@ -13,26 +14,39 @@ function searchcityBtn() {
   }
 
   const city = input1.value.trim() || input2.value.trim()
-  let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=af6317160175544be00c03a34fa644f7`
-  fetch(api).then(response => response.json()).then(result => weatherDetails(result))
-
-
-
-  alert(city + " Hava durumu getiriliyor...")
-  //Giriş ekranını gizle ve ana ekranı göster
-  document.getElementById("head").style.display = "none"
-  document.getElementById("main").style.display = "block"
-  //Şehir adını güncelle
-  document.getElementById("şehir-adı").innerText = city;
-  document.getElementById("cityInput").value = ""
-  document.getElementById("cityInput1").value = ""
-
+  api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=af6317160175544be00c03a34fa644f7`
+  dataWrite()
 }
 
+
+//Konum bilgisi ile arama
+function locationBtn() {
+  alert("Konuma göre hava durumu getiriliyor...")
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError)
+  }else {
+    alert("Tarayıcınız konum hizmetlerini desteklemiyor.")
+  }
+}
+
+//başarılı
+function onSuccess(position) {
+  const {latitude, longitude} = position.coords
+  api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=af6317160175544be00c03a34fa644f7`
+  dataWrite()
+}
+//başarısız
+function onError(){
+  alert(`Hata: Konum izni alınamadı.`)
+}
+
+//Hava durumu bilgileri (test için / geçici)
 function weatherDetails(info) {
   console.log(info)
 }
 
-function searchcityGeo() {
-  alert("Konuma göre hava durumu getiriliyor...")
+//Verileri apiden çekip json formatına çevirme
+function dataWrite() {
+  fetch(api).then(response => response.json()).then(result => weatherDetails(result))
 }
+

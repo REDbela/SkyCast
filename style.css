@@ -1,7 +1,14 @@
     body {
+      background: #1385b3;
+      transition: background 1s ease-in-out;
       margin: 0;
       padding: 0;
-      background: #1385b3;
+      overflow: hidden;
+    }
+
+    #gövde {
+      margin: 0;
+      padding: 0;
       overflow: hidden;
       height: 100vh;
       width: 100vw;
@@ -12,7 +19,142 @@
       justify-content: center;
     }
 
-    #head{
+    #arka-plan {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .yagmur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .yagmur p {
+      background-color: rgba(255, 255, 255, 0.6);
+      width: 2px;
+      height: 15px;
+      border-radius: 5px;
+      animation: fall linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    /* Kar Efekti */
+    .kar p {
+      background-color: white;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      animation: snowFall linear infinite;
+      position: absolute;
+      opacity: 0;
+    }
+
+    @keyframes snowFall {
+      0% {
+        transform: translateY(-10px) translateX(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(50vh) translateX(20px);
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) translateX(-20px);
+        opacity: 0;
+      }
+    }
+
+    /* Bulut Efekti */
+    .bulut {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      filter: blur(20px);
+      border-radius: 50%;
+      animation: drift linear infinite;
+    }
+
+    @keyframes drift {
+      from {
+        transform: translateX(-200px);
+      }
+
+      to {
+        transform: translateX(100vw);
+      }
+    }
+
+    /* Fırtına Şimşek Efekti */
+    .storm {
+      animation: flash 10s infinite;
+    }
+
+    @keyframes flash {
+
+      0%,
+      90%,
+      93%,
+      95%,
+      100% {
+        background: transparent;
+        opacity: 1;
+      }
+
+      91% {
+        background: rgba(177, 250, 232, 0.6);
+      }
+
+      92% {
+        background: transparent;
+      }
+
+      94% {
+        background: rgba(177, 250, 232, 0.9);
+      }
+
+    }
+
+
+    #head {
       background-color: white;
       display: flex;
       padding: 20px;
@@ -29,7 +171,7 @@
     }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
 
     #head:hover {
@@ -180,8 +322,137 @@
       gap: 30px;
     }
 
-    #nem, #rüzgar-hızı {
+    /* Responsive Tasarım - Sadece Mobil için */
+    @media (max-width: 768px) {
+      #main-content {
+        transform: scale(1);
+        width: 90%;
+        max-width: 400px;
+        padding: 15px;
+      }
+
+      #main-content-serch {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .search-box {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .search-box button {
+        width: 100%;
+      }
+
+      #main-content-panel {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      #genel {
+        justify-content: center;
+      }
+
+      #bilgiler {
+        margin-left: 0;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      #durum {
+        justify-content: center;
+      }
+
+      #head {
+        flex-direction: column;
+        width: 90%;
+      }
+    }
+
+
+    #nem,
+    #rüzgar-hızı {
       background-color: #6ba2e2;
       padding: 10px;
       border-radius: 5px;
+    }
+
+    /* Modal ve Yükleme Ekranı Stilleri */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: modalIn 0.3s ease-out;
+    }
+
+    @keyframes modalIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #1385b3;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .error-icon {
+      font-size: 3rem;
+      color: #e74c3c;
+      margin-bottom: 15px;
+    }
+
+    #popup-title {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    #popup-message {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }

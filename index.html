@@ -1,56 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SKYCAST</title>
-    <!-- fontları çekmek -->    
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- İconları çekmek -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    />
-    <!-- Css çekmek -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
 
-      <!-- İlk panel sadece şehir arama kısmı -->
-    <div id="head" class="hidden">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKYCAST</title>
+  <!-- fontları çekmek -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap"
+    rel="stylesheet" />
+  <!-- İconları çekmek -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <!-- Css çekmek -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="arka-plan"></div>
+
+  <div id="gövde">
+    <!-- İlk panel sadece şehir arama kısmı -->
+    <div id="head">
       <h1 class="label">Şehir girin</h1>
-      <input type="text" id="cityInput" class="input control" placeholder="Şehir adı girin..."/>
+      <input type="text" id="cityInput" class="input control" placeholder="Şehir adı girin..." />
 
       <div class="search-box">
         <button id="search-btn" class="control" title="Ara" onclick="searchcityBtn(this)">
-          <i >Ara</i>
+          <i>Ara</i>
         </button>
         <button id="geo-btn" class="control" title="Yakınımdaki Hava" onclick="locationBtn(this)">
-          <i >Konuma göre</i>
+          <i>Konuma göre</i>
         </button>
       </div>
     </div>
 
-      <!-- İkinci panel hem arama hemde hava durumu bilgileri -->
+    <!-- İkinci panel hem arama hemde hava durumu bilgileri -->
 
     <div id="main" class="hidden">
       <div id="main-content">
-
         <!-- Şehir arama kısmı -->
         <div id="main-content-serch">
           <h1>Şehir girin</h1>
-          <input type="text" id="cityInput1" class="input control" placeholder="Şehir adı girin..."/>
+          <input type="text" id="cityInput1" class="input control" placeholder="Şehir adı girin..." />
           <div class="search-box">
-        <button id="search-btn" class="control" title="Ara" onclick="searchcityBtn(this)">
-          <i >Ara</i>
-        </button>
-        <button id="geo-btn" class="control" title="Yakınımdaki Hava" onclick="locationBtn(this)">
-          <i >Konuma göre</i>
-        </button>
-      </div>
+            <button id="search-btn" class="control" title="Ara" onclick="searchcityBtn(this)">
+              <i>Ara</i>
+            </button>
+            <button id="geo-btn" class="control" title="Yakınımdaki Hava" onclick="locationBtn(this)">
+              <i>Konuma göre</i>
+            </button>
+          </div>
         </div>
 
         <!-- Hava durumu bilgileri kısmı -->
@@ -82,7 +81,27 @@
         </div>
       </div>
     </div>
-    <!-- Scripti çekmek -->
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <!-- Yükleme Ekranı -->
+  <div id="loader" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="spinner"></div>
+      <p id="loader-text">Veriler alınıyor...</p>
+    </div>
+  </div>
+
+  <!-- Hata Mesajları için -->
+  <div id="custom-popup" class="modal-overlay hidden">
+    <div class="modal-content popup-error">
+      <i class="fa-solid fa-circle-exclamation error-icon"></i>
+      <h2 id="popup-title">Bilgi</h2>
+      <p id="popup-message"></p>
+      <button onclick="closePopup()" class="control">Tamam</button>
+    </div>
+  </div>
+
+  <!-- Scripti çekmek -->
+  <script src="script.js"></script>
+</body>
+
 </html>

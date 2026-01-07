@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function searchcityBtn() {
   const input1 = document.getElementById("cityInput")
   const input2 = document.getElementById("cityInput1")
-  //adet input olma nedeni benim başta div yapısını kötü oluşturmamdan dolayı aldığım hata sonucu bulduğum bir çözüm. Açıklamak gerekirse 2 butona aynı id veremediğim için 2 ayrı değişkeni kontrol ettirip hangisi dolu ise onu almasını sağladım.
+  //2 adet input olma nedeni benim başta div yapısını kötü oluşturmamdan dolayı aldığım hata sonucu bulduğum bir çözüm. Açıklamak gerekirse 2 butona aynı id veremediğim için 2 ayrı değişkeni kontrol ettirip hangisi dolu ise onu almasını sağladım.
   if (input1.value.trim() === "" && input2.value.trim() === "") {
     showPopup("Hata", "Lütfen bir şehir adı girin.");
     return;
@@ -67,8 +67,9 @@ function weatherDetails(info) {
   document.getElementById("durum-açıklama").innerText = info.weather[0].description
   document.getElementById("nem-label").innerText = "Nem: " + info.main.humidity + "%"
   document.getElementById("rüzgar-hızı-label").innerText = "Rüzgar Hızı: " + info.wind.speed + " km/s"
-  const weatherId = info.weather[0].id;
-  //const weatherId = 250;
+  weatherId = info.weather[0].id;
+  // ******Aşşağıda yorum satırını aktif hale getirip efektleri manual deneyebilirsiniz******
+  weatherId = 250;
   const body = document.body;
   if (weatherId >= 200 && weatherId < 300) {
     body.style.background = "linear-gradient(135deg, #2c3e50, #4ca1af)"; // gök gürültüsü
@@ -99,7 +100,7 @@ function updateWeatherEffects(weatherId, isRecursive = false) {
   const arkaPlan = document.getElementById("arka-plan");
 
   if (!isRecursive) {
-    arkaPlan.innerHTML = ""; // Mevcut efektleri temizle
+    arkaPlan.innerHTML = ""; // Efektleri temizle
     arkaPlan.className = ""; // Class'ları temizle
   }
 
@@ -118,7 +119,7 @@ function updateWeatherEffects(weatherId, isRecursive = false) {
       drop.style.animationDelay = `${delay}s`;
       drop.style.animationDuration = `${duration}s`;
       drop.style.position = "absolute";
-      drop.style.top = "-20px"; // Ekranın dışından başlasın
+      drop.style.top = "-20px";
 
       rainContainer.appendChild(drop);
     }
@@ -141,7 +142,7 @@ function updateWeatherEffects(weatherId, isRecursive = false) {
       flake.style.height = `${size}px`;
       flake.style.animationDelay = `${delay}s`;
       flake.style.animationDuration = `${duration}s`;
-      flake.style.top = "-10px"; // Ekranın dışından başlasın
+      flake.style.top = "-10px";
 
       snowContainer.appendChild(flake);
     }
@@ -187,7 +188,7 @@ function dataWrite() {
     });
 }
 
-// POPUP VE LOADING KONTROLLERİ
+// Hata mesajı ve yükleme ekranı kontrolleri
 function showPopup(title, message) {
   document.getElementById("popup-title").innerText = title;
   document.getElementById("popup-message").innerText = message;

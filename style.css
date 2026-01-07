@@ -125,7 +125,7 @@
 
     /* Fırtına Şimşek Efekti */
     .storm {
-      animation: flash 10s infinite;
+      animation: flash 8s infinite;
     }
 
     @keyframes flash {
@@ -147,7 +147,7 @@
         background: transparent;
       }
 
-      94% {
+      93% {
         background: rgba(177, 250, 232, 0.9);
       }
 
@@ -442,7 +442,7 @@
 
     .error-icon {
       font-size: 3rem;
-      color: #e74c3c;
+      color: #e62d18;
       margin-bottom: 15px;
     }
 

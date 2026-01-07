@@ -69,7 +69,7 @@ function weatherDetails(info) {
   document.getElementById("rüzgar-hızı-label").innerText = "Rüzgar Hızı: " + info.wind.speed + " km/s"
   weatherId = info.weather[0].id;
   // ******Aşşağıda yorum satırını aktif hale getirip efektleri manual deneyebilirsiniz******
-  weatherId = 250;
+  //weatherId = 250;
   const body = document.body;
   if (weatherId >= 200 && weatherId < 300) {
     body.style.background = "linear-gradient(135deg, #2c3e50, #4ca1af)"; // gök gürültüsü
